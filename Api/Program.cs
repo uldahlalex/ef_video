@@ -26,8 +26,8 @@ public class Program
         
         using (var scope = app.Services.CreateScope())
         {
-            scope.ServiceProvider.GetService<MyDbContext>()
-                .Database.EnsureCreated();
+            var db =scope.ServiceProvider.GetService<MyDbContext>().Database.GenerateCreateScript();
+            Console.WriteLine(db);
         }
         
         app.MapControllers();
