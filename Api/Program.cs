@@ -26,7 +26,7 @@ public class Program
         
         using (var scope = app.Services.CreateScope())
         {
-            scope.ServiceProvider.GetService<DbContext>()
+            scope.ServiceProvider.GetService<MyDbContext>()
                 .Database.EnsureCreated();
         }
         
